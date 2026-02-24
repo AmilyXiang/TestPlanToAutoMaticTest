@@ -1,0 +1,40 @@
+{
+  "objects": [
+    {
+      "name": "Phone",
+      "description": "Main device under test",
+      "properties": [
+        {
+          "name": "state",
+          "type": "enum",
+          "enum_values": ["PowerOff", "Idle", "Ring", "Conversation", "Release", "Error"],
+          "default": "Idle"
+        },
+        {
+          "name": "volume",
+          "type": "int",
+          "minimum": 0,
+          "maximum": 100,
+          "default": 50
+        },
+        {
+          "name": "error_code",
+          "type": "int",
+          "minimum": 0,
+          "maximum": 999,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "Network",
+      "properties": [
+        {
+          "name": "connected",
+          "type": "bool",
+          "default": false
+        }
+      ]
+    }
+  ]
+}

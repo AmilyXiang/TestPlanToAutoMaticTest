@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/api-capability.schema.json",
+  "title": "Lightweight API Capability Schema",
+  "type": "object",
+  "required": [
+    "name",
+    "object",
+    "category",
+    "description",
+    "parameters"
+  ],
+  "additionalProperties": false,
+
+  "properties": {
+
+    "name": {
+      "type": "string",
+      "description": "Unique API function name (actual callable name)"
+    },
+
+    "object": {
+      "type": "string",
+      "description": "Target object this API controls"
+    },
+
+    "category": {
+      "type": "string",
+      "enum": ["control", "query", "configuration"]
+    },
+
+    "description": {
+      "type": "string",
+      "description": "Natural language description for semantic matching"
+    },
+
+    "parameters": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/parameter" }
+    },
+
+    "returns": {
+      "$ref": "#/$defs/returnSpec"
+    },
+
+    "preconditions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/stateCondition" }
+    },
+
+    "effects": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/stateEffect" }
+    },
+
+    "timeout_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+
+    "idempotent": {
+      "type": "boolean"
+    },
+
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+
+  },
+
+  "$defs": {
+
+    "parameter": {
+      "type": "object",
+      "required": ["name", "type"],
+      "additionalProperties": false,
+      "properties": {
+
+        "name": {
+          "type": "string"
+        },
+
+        "type": {
+          "type": "string",
+          "enum": ["int", "float", "string", "bool"]
+        },
+
+        "required": {
+          "type": "boolean",
+          "default": true
+        },
+
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+
+    "returnSpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+
+        "type": {
+          "type": "string",
+          "enum": ["void", "int", "float", "string", "bool", "object"]
+        },
+
+        "properties": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+
+    "stateCondition": {
+      "type": "object",
+      "required": ["property", "operator", "value"],
+      "additionalProperties": false,
+      "properties": {
+
+        "property": {
+          "type": "string",
+          "description": "State property name (e.g., state, error_code)"
+        },
+
+        "operator": {
+          "type": "string",
+          "enum": ["==", "!=", ">", "<", ">=", "<="]
+        },
+
+        "value": {}
+      }
+    },
+
+    "stateEffect": {
+      "type": "object",
+      "required": ["property", "action"],
+      "additionalProperties": false,
+      "properties": {
+
+        "property": {
+          "type": "string"
+        },
+
+        "action": {
+          "type": "string",
+          "enum": ["set", "increment", "decrement"]
+        },
+
+        "value": {}
+      }
+    }
+
+  }
+}
