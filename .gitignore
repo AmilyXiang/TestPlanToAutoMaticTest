@@ -1,0 +1,23 @@
+# IDE directories and files
+.idea/
+idao/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Windows
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~

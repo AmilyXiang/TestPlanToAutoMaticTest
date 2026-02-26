@@ -76,7 +76,8 @@
 
         "target": {
           "type": "string",
-          "description": "Target object name"
+          "description": "Target object name",
+          "enum": ["phone", "screen", "program key", "call log"]
         },
 
         "operation": {
@@ -155,7 +156,8 @@
       "properties": {
 
         "target": {
-          "type": "string"
+          "type": "string",
+          "enum": ["phone", "screen", "program key"]
         },
 
         "property": {

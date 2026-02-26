@@ -1,0 +1,630 @@
+[
+  {
+    "meta": {
+      "id": "RQPLEIAD_180_04",
+      "name": "Emergency Outgoing Call By Program Key"
+    },
+    "preconditions": [
+      {
+        "target": "phone",
+        "property": "emergency_program_key_configured",
+        "operator": "==",
+        "value": true
+      }
+    ],
+    "steps": [
+      {
+        "type": "action",
+        "target": "program key",
+        "operation": "press",
+        "params": {
+          "key_name": "emergency_program_key"
+        }
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "title",
+        "operator": "==",
+        "value": "Outgoing call"
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "background_color",
+        "operator": "==",
+        "value": "red"
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "element_displayed",
+        "operator": "==",
+        "value": true,
+        "params": {
+          "element_type": "avatar",
+          "element_name": "emergency_avatar"
+        }
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "element_displayed",
+        "operator": "==",
+        "value": true,
+        "params": {
+          "element_type": "button",
+          "button_name": "release"
+        }
+      },
+      {
+        "type": "check",
+        "target": "phone",
+        "property": "led_state",
+        "operator": "==",
+        "value": "on",
+        "params": {
+          "key_name": "release"
+        }
+      },
+      {
+        "type": "action",
+        "target": "phone",
+        "operation": "remote_answer_call",
+        "params": {
+          "description": "Remote side answers the call"
+        }
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "title",
+        "operator": "contains",
+        "value": "Conversation"
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "background_color",
+        "operator": "==",
+        "value": "red"
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "element_displayed",
+        "operator": "==",
+        "value": true,
+        "params": {
+          "element_type": "avatar",
+          "element_name": "emergency_avatar"
+        }
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "element_displayed",
+        "operator": "==",
+        "value": true,
+        "params": {
+          "element_type": "button",
+          "button_name": "new_call"
+        }
+      },
+      {
+        "type": "check",
+        "target": "phone",
+        "property": "led_state",
+        "operator": "==",
+        "value": "on",
+        "params": {
+          "key_name": "new_call"
+        }
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "element_color",
+        "operator": "==",
+        "value": "grey",
+        "params": {
+          "element_type": "button",
+          "button_name": "release"
+        }
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "element_color",
+        "operator": "==",
+        "value": "grey",
+        "params": {
+          "element_type": "button",
+          "button_name": "hold"
+        }
+      },
+      {
+        "type": "check",
+        "target": "phone",
+        "property": "led_state",
+        "operator": "==",
+        "value": "off",
+        "params": {
+          "key_name": "release"
+        }
+      },
+      {
+        "type": "check",
+        "target": "phone",
+        "property": "led_state",
+        "operator": "==",
+        "value": "off",
+        "params": {
+          "key_name": "hold"
+        }
+      },
+      {
+        "type": "action",
+        "target": "screen",
+        "operation": "tap",
+        "params": {
+          "element_type": "avatar",
+          "element_name": "emergency_avatar"
+        }
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "display",
+        "operator": "contains",
+        "value": "emergency info"
+      },
+      {
+        "type": "action",
+        "target": "screen",
+        "operation": "tap",
+        "params": {
+          "element_type": "button",
+          "button_name": "new_call"
+        }
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "screen_name",
+        "operator": "==",
+        "value": "add new call"
+      },
+      {
+        "type": "action",
+        "target": "screen",
+        "operation": "tap",
+        "params": {
+          "element_type": "button",
+          "button_name": "hold"
+        }
+      },
+      {
+        "type": "check",
+        "target": "phone",
+        "property": "hold_action_result",
+        "operator": "==",
+        "value": "no action"
+      },
+      {
+        "type": "action",
+        "target": "phone",
+        "operation": "pick_up_handset"
+      },
+      {
+        "type": "check",
+        "target": "phone",
+        "property": "audio_route",
+        "operator": "==",
+        "value": "handset"
+      },
+      {
+        "type": "action",
+        "target": "phone",
+        "operation": "hang_up_handset"
+      },
+      {
+        "type": "check",
+        "target": "phone",
+        "property": "audio_route",
+        "operator": "==",
+        "value": "handsfree"
+      },
+      {
+        "type": "action",
+        "target": "screen",
+        "operation": "tap",
+        "params": {
+          "element_type": "button",
+          "button_name": "release"
+        }
+      },
+      {
+        "type": "check",
+        "target": "phone",
+        "property": "release_action_result",
+        "operator": "==",
+        "value": "no action"
+      },
+      {
+        "type": "check",
+        "target": "call log",
+        "property": "entry_type",
+        "operator": "==",
+        "value": "emergency outgoing",
+        "params": {
+          "entry_index": 0
+        }
+      },
+      {
+        "type": "check",
+        "target": "call log",
+        "property": "label",
+        "operator": "==",
+        "value": "correct",
+        "params": {
+          "entry_index": 0
+        }
+      },
+      {
+        "type": "check",
+        "target": "call log",
+        "property": "avatar",
+        "operator": "==",
+        "value": "correct",
+        "params": {
+          "entry_index": 0
+        }
+      },
+      {
+        "type": "check",
+        "target": "call log",
+        "property": "name",
+        "operator": "==",
+        "value": "correct",
+        "params": {
+          "entry_index": 0
+        }
+      },
+      {
+        "type": "check",
+        "target": "call log",
+        "property": "number",
+        "operator": "==",
+        "value": "correct",
+        "params": {
+          "entry_index": 0
+        }
+      },
+      {
+        "type": "check",
+        "target": "call log",
+        "property": "date",
+        "operator": "==",
+        "value": "correct",
+        "params": {
+          "entry_index": 0
+        }
+      }
+    ]
+  },
+  {
+    "meta": {
+      "id": "RQPLEIAD_180_05",
+      "name": "Emergency Outgoing Call By Dial Number/Call log/Contact"
+    },
+    "preconditions": [
+      {
+        "target": "phone",
+        "property": "emergency_number_configured_in_oxe",
+        "operator": "==",
+        "value": true
+      }
+    ],
+    "steps": [
+      {
+        "type": "action",
+        "target": "phone",
+        "operation": "dial_emergency_number",
+        "params": {
+          "method": "call_log_or_contact"
+        }
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "title",
+        "operator": "==",
+        "value": "Outgoing call"
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "background_color",
+        "operator": "==",
+        "value": "red"
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "element_displayed",
+        "operator": "==",
+        "value": true,
+        "params": {
+          "element_type": "avatar",
+          "element_name": "emergency_avatar"
+        }
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "element_displayed",
+        "operator": "==",
+        "value": true,
+        "params": {
+          "element_type": "button",
+          "button_name": "release"
+        }
+      },
+      {
+        "type": "check",
+        "target": "phone",
+        "property": "led_state",
+        "operator": "==",
+        "value": "on",
+        "params": {
+          "key_name": "release"
+        }
+      },
+      {
+        "type": "action",
+        "target": "phone",
+        "operation": "remote_answer_call",
+        "params": {
+          "description": "Remote side answers the call"
+        }
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "title",
+        "operator": "contains",
+        "value": "Conversation"
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "background_color",
+        "operator": "==",
+        "value": "red"
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "element_displayed",
+        "operator": "==",
+        "value": true,
+        "params": {
+          "element_type": "avatar",
+          "element_name": "emergency_avatar"
+        }
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "element_displayed",
+        "operator": "==",
+        "value": true,
+        "params": {
+          "element_type": "button",
+          "button_name": "new_call"
+        }
+      },
+      {
+        "type": "check",
+        "target": "phone",
+        "property": "led_state",
+        "operator": "==",
+        "value": "on",
+        "params": {
+          "key_name": "new_call"
+        }
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "element_color",
+        "operator": "==",
+        "value": "grey",
+        "params": {
+          "element_type": "button",
+          "button_name": "release"
+        }
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "element_color",
+        "operator": "==",
+        "value": "grey",
+        "params": {
+          "element_type": "button",
+          "button_name": "hold"
+        }
+      },
+      {
+        "type": "check",
+        "target": "phone",
+        "property": "led_state",
+        "operator": "==",
+        "value": "off",
+        "params": {
+          "key_name": "release"
+        }
+      },
+      {
+        "type": "check",
+        "target": "phone",
+        "property": "led_state",
+        "operator": "==",
+        "value": "off",
+        "params": {
+          "key_name": "hold"
+        }
+      },
+      {
+        "type": "action",
+        "target": "screen",
+        "operation": "tap",
+        "params": {
+          "element_type": "avatar",
+          "element_name": "emergency_avatar"
+        }
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "display",
+        "operator": "contains",
+        "value": "emergency info"
+      },
+      {
+        "type": "action",
+        "target": "screen",
+        "operation": "tap",
+        "params": {
+          "element_type": "button",
+          "button_name": "new_call"
+        }
+      },
+      {
+        "type": "check",
+        "target": "screen",
+        "property": "screen_name",
+        "operator": "==",
+        "value": "add new call"
+      },
+      {
+        "type": "action",
+        "target": "screen",
+        "operation": "tap",
+        "params": {
+          "element_type": "button",
+          "button_name": "hold"
+        }
+      },
+      {
+        "type": "check",
+        "target": "phone",
+        "property": "hold_action_result",
+        "operator": "==",
+        "value": "no action"
+      },
+      {
+        "type": "action",
+        "target": "phone",
+        "operation": "pick_up_handset"
+      },
+      {
+        "type": "check",
+        "target": "phone",
+        "property": "audio_route",
+        "operator": "==",
+        "value": "handset"
+      },
+      {
+        "type": "action",
+        "target": "phone",
+        "operation": "hang_up_handset"
+      },
+      {
+        "type": "check",
+        "target": "phone",
+        "property": "audio_route",
+        "operator": "==",
+        "value": "handsfree"
+      },
+      {
+        "type": "action",
+        "target": "screen",
+        "operation": "tap",
+        "params": {
+          "element_type": "button",
+          "button_name": "release"
+        }
+      },
+      {
+        "type": "check",
+        "target": "phone",
+        "property": "release_action_result",
+        "operator": "==",
+        "value": "no action"
+      },
+      {
+        "type": "check",
+        "target": "call log",
+        "property": "entry_type",
+        "operator": "==",
+        "value": "emergency outgoing",
+        "params": {
+          "entry_index": 0
+        }
+      },
+      {
+        "type": "check",
+        "target": "call log",
+        "property": "label",
+        "operator": "==",
+        "value": "correct",
+        "params": {
+          "entry_index": 0
+        }
+      },
+      {
+        "type": "check",
+        "target": "call log",
+        "property": "avatar",
+        "operator": "==",
+        "value": "correct",
+        "params": {
+          "entry_index": 0
+        }
+      },
+      {
+        "type": "check",
+        "target": "call log",
+        "property": "name",
+        "operator": "==",
+        "value": "correct",
+        "params": {
+          "entry_index": 0
+        }
+      },
+      {
+        "type": "check",
+        "target": "call log",
+        "property": "number",
+        "operator": "==",
+        "value": "correct",
+        "params": {
+          "entry_index": 0
+        }
+      },
+      {
+        "type": "check",
+        "target": "call log",
+        "property": "date",
+        "operator": "==",
+        "value": "correct",
+        "params": {
+          "entry_index": 0
+        }
+      }
+    ]
+  }
+]
