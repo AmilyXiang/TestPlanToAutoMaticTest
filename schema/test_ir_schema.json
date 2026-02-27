@@ -77,7 +77,7 @@
         "target": {
           "type": "string",
           "description": "Target object name",
-          "enum": ["phone", "screen", "program key", "call log"]
+          "enum": ["phone", "screen", "key", "touch_key", "program key", "call log"]
         },
 
         "operation": {

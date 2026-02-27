@@ -1,0 +1,57 @@
+[
+  {
+    "name": "press_key",
+    "object": "key",
+    "category": "control",
+    "description": "Simulate pressing a physical key on the device",
+    "parameters": [
+      {
+        "name": "key_name",
+        "type": "string",
+        "required": true,
+        "description": "Name of the key to press, e.g., POWER, OK, BACK, MENU"
+      }
+    ],
+    "returns": {
+      "type": "void"
+    },
+    "preconditions": [
+      {
+        "property": "state",
+        "operator": "!=",
+        "value": "Off"
+      }
+    ],
+    "effects": [
+      {
+        "property": "last_key_pressed",
+        "action": "set",
+        "value": "$key_name"
+      }
+    ],
+    "timeout_ms": 1000,
+    "idempotent": false,
+    "tags": ["input", "key", "hardware"]
+  },
+  {
+    "name": "get_screen_title",
+    "object": "screen",
+    "category": "query",
+    "description": "Retrieve the current screen title displayed on the device",
+    "parameters": [],
+    "returns": {
+      "type": "string"
+    },
+    "preconditions": [
+      {
+        "property": "state",
+        "operator": "!=",
+        "value": "Off"
+      }
+    ],
+    "effects": [],
+    "timeout_ms": 2000,
+    "idempotent": true,
+    "tags": ["ui", "screen", "verification"]
+  }
+]
