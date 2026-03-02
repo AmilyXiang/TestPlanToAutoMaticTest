@@ -21,3 +21,9 @@ $RECYCLE.BIN/
 
 # Linux
 *~
+
+#env
+.venv/
+
+#output
+output/
