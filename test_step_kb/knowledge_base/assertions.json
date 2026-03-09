@@ -1,0 +1,30 @@
+{
+  "description": "Assertion Schema Library for expected-result parsing",
+  "assertion_enums": [
+    "DISPLAY_SCREEN",
+    "STATE_UPDATED",
+    "CALL_ESTABLISHED",
+    "CALL_RECEIVED",
+    "CALL_LOG_UPDATED",
+    "KEY_CONFIGURED",
+    "NO_ASSERTION"
+  ],
+  "parameter_schema": {
+    "target": {"type": ["string", "null"]},
+    "screen_name": {"type": ["string", "null"]},
+    "device": {
+      "type": ["string", "null"],
+      "enum": ["phone", "addon", "screen", null]
+    },
+    "status": {"type": ["string", "null"]}
+  },
+  "assertion_parameter_contract": {
+    "DISPLAY_SCREEN": ["screen_name", "device"],
+    "STATE_UPDATED": ["target", "status", "device"],
+    "CALL_ESTABLISHED": ["target", "device"],
+    "CALL_RECEIVED": ["target", "device"],
+    "CALL_LOG_UPDATED": ["target", "device"],
+    "KEY_CONFIGURED": ["target", "status", "device"],
+    "NO_ASSERTION": []
+  }
+}

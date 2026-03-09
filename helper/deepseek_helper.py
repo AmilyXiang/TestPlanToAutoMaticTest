@@ -22,7 +22,7 @@ class DeepSeekHelper:
         Args:
             api_key: DeepSeek API 密钥，若不提供则从环境变量 DEEPSEEK_API_KEY 读取
         """
-        self._api_key = api_key or os.environ.get("DEEPSEEK_API_KEY")
+        self._api_key = "sk-51879dcdce7b422daba6394775ab4489" or os.environ.get("DEEPSEEK_API_KEY")
         if not self._api_key:
             raise ValueError("请提供 API 密钥或设置环境变量 DEEPSEEK_API_KEY")
         

@@ -1,0 +1,74 @@
+{
+  "description": "Action Schema Library for phone/VoIP test automation",
+  "action_enums": [
+    "PRESS_KEY",
+    "LONG_PRESS_KEY",
+    "TAP_SCREEN",
+    "HANDSET_OFFHOOK",
+    "HANDSET_ONHOOK",
+    "WAIT",
+    "ANSWER_CALL",
+    "REJECT_CALL",
+    "ESTABLISH_CALL",
+    "CHECK_CALL_LOG",
+    "OPEN_MENU",
+    "VERIFY_KEY_FUNCTION",
+    "SELECT_OPTION",
+    "CONFIGURE_KEY",
+    "DIAL_NUMBER"
+  ],
+  "parameter_schema": {
+    "key_name": {
+      "type": ["string", "null"]
+    },
+    "screen_button": {
+      "type": ["string", "null"]
+    },
+    "device": {
+      "type": ["string", "null"],
+      "enum": ["phone", "addon", "screen", null]
+    },
+    "duration": {
+      "type": ["string", "null"],
+      "enum": ["short", "long", null]
+    },
+    "call_type": {
+      "type": ["string", "null"]
+    },
+    "menu_name": {
+      "type": ["string", "null"]
+    },
+    "option_name": {
+      "type": ["string", "null"]
+    },
+    "verification_target": {
+      "type": ["string", "null"]
+    },
+    "number": {
+      "type": ["string", "null"]
+    },
+    "artifact": {
+      "type": ["string", "null"]
+    },
+    "seconds": {
+      "type": ["integer", "null"]
+    }
+  },
+  "action_parameter_contract": {
+    "PRESS_KEY": ["key_name", "device", "duration"],
+    "LONG_PRESS_KEY": ["key_name", "device", "duration"],
+    "TAP_SCREEN": ["screen_button", "device", "duration"],
+    "HANDSET_OFFHOOK": ["device"],
+    "HANDSET_ONHOOK": ["device"],
+    "WAIT": ["seconds"],
+    "ANSWER_CALL": ["call_type", "device"],
+    "REJECT_CALL": ["call_type", "device"],
+    "ESTABLISH_CALL": ["call_type", "device"],
+    "CHECK_CALL_LOG": ["artifact", "device"],
+    "OPEN_MENU": ["menu_name", "device"],
+    "VERIFY_KEY_FUNCTION": ["verification_target", "device"],
+    "SELECT_OPTION": ["option_name", "device"],
+    "CONFIGURE_KEY": ["key_name", "device"],
+    "DIAL_NUMBER": ["number", "device", "duration"]
+  }
+}

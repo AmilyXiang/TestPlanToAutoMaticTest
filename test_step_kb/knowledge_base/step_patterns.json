@@ -1,0 +1,503 @@
+{
+  "patterns": [
+    {
+      "pattern_id": "P003",
+      "pattern": "tap <screen_button>",
+      "regex": "(tap|press) (?P<screen_button>.+) (of the screen|on screen)",
+      "action": "TAP_SCREEN",
+      "priority": 100,
+      "parameter_mapping": {
+        "screen_button": "screen_button"
+      },
+      "static_parameters": {
+        "key_name": null,
+        "device": "screen",
+        "duration": "short"
+      },
+      "examples": [
+        "press create of the screen",
+        "tap call on screen"
+      ]
+    },
+    {
+      "pattern_id": "P007",
+      "pattern": "remote side answer the call",
+      "regex": "(remote side answer the call|answer the call)",
+      "action": "ANSWER_CALL",
+      "priority": 95,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "call_type": "generic",
+        "device": "phone"
+      },
+      "examples": [
+        "remote side answer the call"
+      ]
+    },
+    {
+      "pattern_id": "P008",
+      "pattern": "check call log after release",
+      "regex": "after the (conference )?call is released check the call log",
+      "action": "CHECK_CALL_LOG",
+      "priority": 95,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "artifact": "call log",
+        "device": "phone"
+      },
+      "examples": [
+        "after the call is released check the call log",
+        "after the conference call is released check the call log"
+      ]
+    },
+    {
+      "pattern_id": "P009",
+      "pattern": "pick up handset",
+      "regex": "(pick up the handset|lift handset|handset offhook|go offhook)",
+      "action": "HANDSET_OFFHOOK",
+      "priority": 90,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "key_name": null,
+        "screen_button": null,
+        "device": "phone",
+        "duration": null
+      },
+      "examples": [
+        "pick up the handset",
+        "lift handset"
+      ]
+    },
+    {
+      "pattern_id": "P010",
+      "pattern": "hang handset",
+      "regex": "(hang on the handset|replace handset|handset onhook|go onhook)",
+      "action": "HANDSET_ONHOOK",
+      "priority": 90,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "key_name": null,
+        "screen_button": null,
+        "device": "phone",
+        "duration": null
+      },
+      "examples": [
+        "hang on the handset",
+        "replace handset"
+      ]
+    },
+    {
+      "pattern_id": "P011",
+      "pattern": "enter hard keys menu",
+      "regex": "(phone )?enter the hard keys menu userdevicehard keys",
+      "action": "OPEN_MENU",
+      "priority": 90,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "menu_name": "hard keys menu",
+        "device": "phone"
+      },
+      "examples": [
+        "enter the hard keys menu userdevicehard keys"
+      ]
+    },
+    {
+      "pattern_id": "P012",
+      "pattern": "establish call with target",
+      "regex": "phone establish a call with the (?P<target>emergency|guard|operator)",
+      "action": "ESTABLISH_CALL",
+      "priority": 90,
+      "parameter_mapping": {
+        "call_type": "target"
+      },
+      "static_parameters": {
+        "device": "phone"
+      },
+      "examples": [
+        "phone establish a call with the emergency",
+        "phone establish a call with the guard"
+      ]
+    },
+    {
+      "pattern_id": "P013",
+      "pattern": "verify key function",
+      "regex": "(check the f1f2f3 function of the ale500|check the new function of the hard key|check the defined key of the oxe|check the two keys of the oxe)",
+      "action": "VERIFY_KEY_FUNCTION",
+      "priority": 85,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "verification_target": "key function",
+        "device": "phone"
+      },
+      "examples": [
+        "check the new function of the hard key",
+        "check the defined key of the oxe"
+      ]
+    },
+    {
+      "pattern_id": "P014",
+      "pattern": "select key type",
+      "regex": "select one key type",
+      "action": "SELECT_OPTION",
+      "priority": 80,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "option_name": "key type",
+        "device": "screen",
+        "duration": "short"
+      },
+      "examples": [
+        "select one key type"
+      ]
+    },
+    {
+      "pattern_id": "P015",
+      "pattern": "normal outgoing call",
+      "regex": "phone makes the new normal outgoing call",
+      "action": "ESTABLISH_CALL",
+      "priority": 80,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "call_type": "normal outgoing call",
+        "device": "phone"
+      },
+      "examples": [
+        "phone makes the new normal outgoing call"
+      ]
+    },
+    {
+      "pattern_id": "P016",
+      "pattern": "normal incoming call",
+      "regex": "phone receives the normal incoming call",
+      "action": "ANSWER_CALL",
+      "priority": 80,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "call_type": "normal incoming call",
+        "device": "phone"
+      },
+      "examples": [
+        "phone receives the normal incoming call"
+      ]
+    },
+    {
+      "pattern_id": "P017",
+      "pattern": "remaining key press",
+      "regex": "ale300400500 press the remaining key",
+      "action": "PRESS_KEY",
+      "priority": 80,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "key_name": "remaining key",
+        "screen_button": null,
+        "device": "phone",
+        "duration": "short"
+      },
+      "examples": [
+        "ale300400500 press the remaining key"
+      ]
+    },
+    {
+      "pattern_id": "P018",
+      "pattern": "check call log generic",
+      "regex": ".*check the call log.*",
+      "action": "CHECK_CALL_LOG",
+      "priority": 94,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "artifact": "call log",
+        "device": "phone"
+      },
+      "examples": [
+        "check the call log",
+        "release the call then check the call log"
+      ]
+    },
+    {
+      "pattern_id": "P019",
+      "pattern": "answer call generic",
+      "regex": ".*(answer the (new )?call|phone receives the incoming call|remote side answer the call).*$",
+      "action": "ANSWER_CALL",
+      "priority": 94,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "call_type": "generic",
+        "device": "phone"
+      },
+      "examples": [
+        "answer the new call",
+        "phone receives the incoming call"
+      ]
+    },
+    {
+      "pattern_id": "P020",
+      "pattern": "reject call generic",
+      "regex": ".*reject the call.*",
+      "action": "REJECT_CALL",
+      "priority": 94,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "call_type": "generic",
+        "device": "phone"
+      },
+      "examples": [
+        "remote side reject the call"
+      ]
+    },
+    {
+      "pattern_id": "P021",
+      "pattern": "new outgoing call",
+      "regex": "phone makes the new outgoing call( to (?P<target>guard|emergency|operator))?",
+      "action": "ESTABLISH_CALL",
+      "priority": 90,
+      "parameter_mapping": {
+        "call_type": "target"
+      },
+      "static_parameters": {
+        "call_type": "normal",
+        "device": "phone"
+      },
+      "examples": [
+        "phone makes the new outgoing call",
+        "phone makes the new outgoing call to emergency"
+      ]
+    },
+    {
+      "pattern_id": "P022",
+      "pattern": "configure progkey",
+      "regex": "oxe userprogrammable key set the progkey (?P<key_name>.+)",
+      "action": "CONFIGURE_KEY",
+      "priority": 90,
+      "parameter_mapping": {
+        "key_name": "key_name"
+      },
+      "static_parameters": {
+        "screen_button": null,
+        "device": "phone",
+        "duration": null
+      },
+      "examples": [
+        "oxe userprogrammable key set the progkey 124 not assigned"
+      ]
+    },
+    {
+      "pattern_id": "P023",
+      "pattern": "open hard keys menu generic",
+      "regex": ".*enter the hard keys menu userdevicehard keys.*",
+      "action": "OPEN_MENU",
+      "priority": 89,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "menu_name": "hard keys menu",
+        "device": "phone"
+      },
+      "examples": [
+        "phone configure two hard keys phone enter the hard keys menu userdevicehard keys"
+      ]
+    },
+    {
+      "pattern_id": "P024",
+      "pattern": "verify triangle circle square keys",
+      "regex": "(ale500 check the triangle circlesquare key|check the trianglecirclesquare on ale500)",
+      "action": "VERIFY_KEY_FUNCTION",
+      "priority": 88,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "verification_target": "triangle circle square",
+        "device": "phone"
+      },
+      "examples": [
+        "ale500 check the triangle circlesquare key"
+      ]
+    },
+    {
+      "pattern_id": "P025",
+      "pattern": "dial emergency number",
+      "regex": "dial the (?P<key_name>911|112)( or (911|112))?",
+      "action": "DIAL_NUMBER",
+      "priority": 88,
+      "parameter_mapping": {
+        "number": "key_name"
+      },
+      "static_parameters": {
+        "device": "phone",
+        "duration": "short"
+      },
+      "examples": [
+        "dial the 911 or 112"
+      ]
+    },
+    {
+      "pattern_id": "P026",
+      "pattern": "press function key f1f2f3",
+      "regex": ".*press the (?P<key_name>f1|f2|f3) key( again)?$",
+      "action": "PRESS_KEY",
+      "priority": 88,
+      "parameter_mapping": {
+        "key_name": "key_name"
+      },
+      "static_parameters": {
+        "screen_button": null,
+        "device": "phone",
+        "duration": "short"
+      },
+      "examples": [
+        "phone is idle mode the led of the f1f2f3 is off then press the f1 key"
+      ]
+    },
+    {
+      "pattern_id": "P027",
+      "pattern": "long press hard keys by model",
+      "regex": "ale30 long press the f1f2 ale300400 long press the f1f2f3 ale500long press trianglecirclesquare",
+      "action": "LONG_PRESS_KEY",
+      "priority": 88,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "key_name": "hard keys",
+        "screen_button": null,
+        "device": "phone",
+        "duration": "long"
+      },
+      "examples": [
+        "ale30 long press the f1f2 ale300400 long press the f1f2f3 ale500long press trianglecirclesquare"
+      ]
+    },
+    {
+      "pattern_id": "P028",
+      "pattern": "select defined key mapping",
+      "regex": "select the defined key define the two keys to another function",
+      "action": "SELECT_OPTION",
+      "priority": 86,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "option_name": "defined key",
+        "device": "screen",
+        "duration": "short"
+      },
+      "examples": [
+        "select the defined key define the two keys to another function"
+      ]
+    },
+    {
+      "pattern_id": "P029",
+      "pattern": "verify key function generic",
+      "regex": "(check the new function of the key|check the function of the key to its default state)",
+      "action": "VERIFY_KEY_FUNCTION",
+      "priority": 86,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "verification_target": "key function",
+        "device": "phone"
+      },
+      "examples": [
+        "check the new function of the key"
+      ]
+    },
+    {
+      "pattern_id": "P030",
+      "pattern": "press i icon",
+      "regex": "ale300400 press the i icon",
+      "action": "PRESS_KEY",
+      "priority": 86,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "key_name": "i icon",
+        "screen_button": null,
+        "device": "phone",
+        "duration": "short"
+      },
+      "examples": [
+        "ale300400 press the i icon"
+      ]
+    },
+    {
+      "pattern_id": "P001",
+      "pattern": "press <key_name>",
+      "regex": "press (?P<key_name>.+)",
+      "action": "PRESS_KEY",
+      "priority": 10,
+      "parameter_mapping": {
+        "key_name": "key_name"
+      },
+      "static_parameters": {
+        "screen_button": null,
+        "device": "phone",
+        "duration": "short"
+      },
+      "examples": [
+        "press emergency call",
+        "press programmable key"
+      ]
+    },
+    {
+      "pattern_id": "P002",
+      "pattern": "long press <key_name>",
+      "regex": "long press (?P<key_name>.+)",
+      "action": "LONG_PRESS_KEY",
+      "priority": 20,
+      "parameter_mapping": {
+        "key_name": "key_name"
+      },
+      "static_parameters": {
+        "screen_button": null,
+        "device": "phone",
+        "duration": "long"
+      },
+      "examples": [
+        "long press redial"
+      ]
+    },
+    {
+      "pattern_id": "P004",
+      "pattern": "handset offhook",
+      "regex": "(lift handset|handset offhook|go offhook)",
+      "action": "HANDSET_OFFHOOK",
+      "priority": 15,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "key_name": null,
+        "screen_button": null,
+        "device": "phone",
+        "duration": null
+      },
+      "examples": [
+        "lift handset",
+        "handset offhook"
+      ]
+    },
+    {
+      "pattern_id": "P005",
+      "pattern": "handset onhook",
+      "regex": "(replace handset|handset onhook|go onhook)",
+      "action": "HANDSET_ONHOOK",
+      "priority": 15,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "key_name": null,
+        "screen_button": null,
+        "device": "phone",
+        "duration": null
+      },
+      "examples": [
+        "replace handset",
+        "handset onhook"
+      ]
+    },
+    {
+      "pattern_id": "P006",
+      "pattern": "wait <seconds>",
+      "regex": "wait( for)? (?P<seconds>\\d+)( second| seconds|s)",
+      "action": "WAIT",
+      "priority": 15,
+      "parameter_mapping": {
+        "seconds": "seconds"
+      },
+      "static_parameters": {
+        "device": "phone"
+      },
+      "examples": [
+        "wait 3 seconds"
+      ]
+    }
+  ]
+}

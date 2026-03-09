@@ -1,0 +1,80 @@
+{
+  "patterns": [
+    {
+      "pattern_id": "A001",
+      "pattern": "display screen",
+      "regex": ".*display.*screen.*",
+      "assertion": "DISPLAY_SCREEN",
+      "priority": 90,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "screen_name": "ui screen",
+        "device": "screen"
+      },
+      "examples": [
+        "display the key type choice screen"
+      ]
+    },
+    {
+      "pattern_id": "A002",
+      "pattern": "key created",
+      "regex": ".*(created successfully|display correctly).*",
+      "assertion": "KEY_CONFIGURED",
+      "priority": 90,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "target": "programmable key",
+        "status": "created",
+        "device": "phone"
+      },
+      "examples": [
+        "the program key created successfully and display correctly"
+      ]
+    },
+    {
+      "pattern_id": "A003",
+      "pattern": "call established",
+      "regex": ".*(establish a call|outgoing call).*",
+      "assertion": "CALL_ESTABLISHED",
+      "priority": 80,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "target": "call",
+        "device": "phone"
+      },
+      "examples": [
+        "phone establish a call"
+      ]
+    },
+    {
+      "pattern_id": "A004",
+      "pattern": "incoming call received",
+      "regex": ".*(receives.*incoming call|incoming call).*",
+      "assertion": "CALL_RECEIVED",
+      "priority": 80,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "target": "incoming call",
+        "device": "phone"
+      },
+      "examples": [
+        "phone receives the incoming call"
+      ]
+    },
+    {
+      "pattern_id": "A005",
+      "pattern": "call log updated",
+      "regex": ".*call log.*",
+      "assertion": "CALL_LOG_UPDATED",
+      "priority": 80,
+      "parameter_mapping": {},
+      "static_parameters": {
+        "target": "call log",
+        "device": "phone"
+      },
+      "examples": [
+        "check the call log"
+      ]
+    }
+  ]
+}
